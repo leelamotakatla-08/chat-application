@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chat</title>
+<style>
+body{font-family:Arial;margin:0;background:#ece5dd;}
+.chat-header{background:#075e54;color:white;padding:10px;display:flex;justify-content:space-between;}
+.chat-header button{background:#128c7e;border:none;color:white;padding:5px 10px;cursor:pointer;}
+#messages{height:400px;overflow-y:scroll;background:#dcf8c6;padding:10px;}
+.message{margin:5px 0;padding:5px 10px;border-radius:5px;max-width:60%;position:relative;}
+.sent{background:#dcf8c6;margin-left:auto;}
+.received{background:white;margin-right:auto;}
+.delete-btn{position:absolute;top:0;right:0;font-size:12px;color:red;cursor:pointer;display:none;}
+.input-area{display:flex;padding:10px;}
+.input-area input{flex:1;padding:10px;}
+.input-area button{padding:10px;background:#128c7e;color:white;border:none;cursor:pointer;}
+</style>
+</head>
+<body>
+<div class="chat-header">
+<div id="chat-with"></div>
+<div>
+<button id="callBtn">Call</button>
+<button id="muteBtn">Mute</button>
+<button id="deleteAllBtn">Delete All</button>
+</div>
+</div>
+
+<div id="messages"></div>
+
+<div class="input-area">
+<input type="text" id="messageInput" placeholder="Type a message">
+<button id="sendBtn">Send</button>
+</div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const chatUserId = urlParams.get('user');
+const chatUserName = urlParams.get('name');
+const currentUserId = 1; // logged in user
+document.getElementById("chat-with").innerText = chatUserName;
+const messagesDiv = document.getElementById("messages");
+
+// Auto-reply logic based on your message
+function getReply(msg){
+  msg = msg.toLowerCase();
+  if(msg.includes("how are you")) return "I am fine!";
+  if(msg.includes("what are you doing")) return "Just working!";
+  if(msg.includes("hello") || msg.includes("hi")) return "Hello!";
+  return "I see.";
+}
+
+// Load messages
+async function loadMessages(){
+  const res = await fetch(`/messages/${currentUserId}/${chatUserId}`);
+  const msgs = await res.json();
+  messagesDiv.innerHTML="";
+  msgs.forEach(msg=>{
+    const div=document.createElement("div");
+    div.className="message "+(msg.sender_id==currentUserId?"sent":"received");
+    div.innerText=msg.message+(msg.status=="seen" && msg.sender_id==currentUserId ? " ✓✓":"");
+
+    // Long press to delete a single message
+    let pressTimer;
+    div.addEventListener("mousedown",()=>{
+      pressTimer=setTimeout(async ()=>{
+        if(confirm("Delete this message?")){
+          await fetch(`/messages/${msg.id}`,{method:"DELETE"});
+          loadMessages();
+        }
+      },1000);
+    });
+    div.addEventListener("mouseup",()=>clearTimeout(pressTimer));
+    div.addEventListener("mouseleave",()=>clearTimeout(pressTimer));
+
+    messagesDiv.appendChild(div);
+  });
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+loadMessages();
+
+// Send message + simulate intelligent reply
+document.getElementById("sendBtn").onclick = async ()=>{
+  const msg=document.getElementById("messageInput").value;
+  if(!msg) return;
+  await fetch("/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({sender_id:currentUserId,receiver_id:chatUserId,message:msg})});
+  document.getElementById("messageInput").value="";
+  loadMessages();
+
+  // Auto-reply after 1s
+  setTimeout(async ()=>{
+    const reply=getReply(msg);
+    await fetch("/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({sender_id:parseInt(chatUserId),receiver_id:currentUserId,message:reply})});
+    loadMessages();
+  },1000);
+};
+
+// Mark seen
+async function markSeen(){
+  await fetch("/messages/seen",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({sender_id:chatUserId,receiver_id:currentUserId})});
+  loadMessages();
+}
+markSeen();
+
+// Call button
+document.getElementById("callBtn").onclick=()=>alert("Calling "+chatUserName);
+
+// Delete all messages
+document.getElementById("deleteAllBtn").onclick=async ()=>{
+  if(confirm("Delete all messages?")){
+    await fetch(`/messages/${currentUserId}/${chatUserId}`,{method:"DELETE"});
+    messagesDiv.innerHTML="";
+  }
+};
+
+// Mute button
+document.getElementById("muteBtn").onclick=async ()=>{
+  let choice=prompt("Mute: 1) 8 hours 2) 1 week 3) Always");
+  if(!choice)return;
+  let muteUntil; const now=new Date();
+  if(choice=="1"){ now.setHours(now.getHours()+8); muteUntil=now.toISOString().slice(0,19).replace("T"," "); }
+  else if(choice=="2"){ now.setDate(now.getDate()+7); muteUntil=now.toISOString().slice(0,19).replace("T"," "); }
+  else if(choice=="3"){ muteUntil="2099-01-01 00:00:00"; }
+  else return;
+  await fetch("/mute",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({user_id:currentUserId,muted_user_id:chatUserId,mute_until:muteUntil})});
+  alert("User muted!");
+};
+
+// Refresh every 2s
+setInterval(()=>{ loadMessages(); markSeen(); },2000);
+</script>
+</body>
+</html>

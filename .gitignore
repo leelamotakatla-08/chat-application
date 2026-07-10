@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+
+# VS Code Settings
+.vscode/
+
+# Log Files
+*.log
+npm-debug.log*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# SQLite Database (optional)
+*.db
+*.sqlite
+*.sqlite3

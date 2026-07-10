@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatApp12</title>
+  <style>
+    body{font-family:Arial;margin:0;background:#ece5dd;}
+    .sidebar{width:300px;padding:10px;background:#075e54;color:white;height:100vh;}
+    .user{padding:10px;margin:5px 0;background:#128c7e;cursor:pointer;border-radius:5px;}
+    .user:hover{background:#075e54;}
+    .add-user{padding:10px;margin:5px 0;background:#34b7f1;cursor:pointer;border-radius:5px;text-align:center;}
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Chats</h2>
+    <div class="add-user">+ Add User</div>
+    <div id="users">Loading users...</div>
+  </div>
+
+  <script>
+    async function loadUsers() {
+      const res = await fetch("/users");
+      const users = await res.json();
+      const div = document.getElementById("users");
+      div.innerHTML = "";
+
+      users.forEach(user => {
+        const uDiv = document.createElement("div");
+        uDiv.className = "user";
+        uDiv.innerText = user.name; // display only name
+
+        // Click to open chat
+        uDiv.onclick = () => {
+          window.location.href = `chat.html?user=${user.id}&name=${encodeURIComponent(user.name)}`;
+        };
+
+        // Long press to delete user
+        let pressTimer;
+        uDiv.addEventListener("mousedown", () => {
+          pressTimer = setTimeout(async () => {
+            if (confirm(`Delete user "${user.name}"?`)) {
+              await fetch(`/users/${user.id}`, { method: "DELETE" });
+              loadUsers(); // refresh the list
+            }
+          }, 1000); // 1 second hold
+        });
+        uDiv.addEventListener("mouseup", () => clearTimeout(pressTimer));
+        uDiv.addEventListener("mouseleave", () => clearTimeout(pressTimer));
+
+        div.appendChild(uDiv);
+      });
+    }
+
+    // Add User button (name + phone)
+    const addBtn = document.querySelector(".add-user");
+    addBtn.onclick = async () => {
+      const name = prompt("Enter new user name:");
+      if (!name) return;
+
+      const phone = prompt("Enter user's mobile number:");
+      if (!phone) return;
+
+      await fetch("/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone })
+      });
+
+      loadUsers(); // refresh
+    };
+
+    // Load users on page ready
+    window.addEventListener("DOMContentLoaded", loadUsers);
+  </script>
+</body>
+</html>

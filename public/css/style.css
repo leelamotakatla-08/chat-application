@@ -1,0 +1,64 @@
+body{
+font-family:Arial;
+margin:0;
+background:#ece5dd;
+}
+
+.chat-header{
+background:#075e54;
+color:white;
+padding:10px;
+display:flex;
+justify-content:space-between;
+}
+
+.chat-header button{
+background:#128c7e;
+border:none;
+color:white;
+padding:5px 10px;
+cursor:pointer;
+}
+
+#messages{
+height:400px;
+overflow-y:scroll;
+background:#dcf8c6;
+padding:10px;
+}
+
+.message{
+margin:5px 0;
+padding:5px 10px;
+border-radius:5px;
+max-width:60%;
+position:relative;
+}
+
+.sent{
+background:#dcf8c6;
+margin-left:auto;
+}
+
+.received{
+background:white;
+margin-right:auto;
+}
+
+.input-area{
+display:flex;
+padding:10px;
+}
+
+.input-area input{
+flex:1;
+padding:10px;
+}
+
+.input-area button{
+padding:10px;
+background:#128c7e;
+color:white;
+border:none;
+cursor:pointer;
+}
