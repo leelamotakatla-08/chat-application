@@ -1,8 +1,8 @@
 # 💬 Chat Application | Full-Stack WhatsApp-Inspired Messaging Platform
 
-> A WhatsApp-Inspired Smart Messaging Platform built using **HTML, CSS, JavaScript, Node.js, Express.js, and SQLite**.
+> A full-stack WhatsApp-inspired messaging platform built with **HTML, CSS, JavaScript, Node.js, Express.js, and MySQL** that enables one-to-one messaging, contact management, automated replies, message deletion, and conversation muting through RESTful APIs.
 
-![Project Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 ![Platform](https://img.shields.io/badge/Platform-Web-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -10,68 +10,89 @@
 
 # 📖 Project Overview
 
-Chat Application is a full-stack web-based messaging platform inspired by WhatsApp, designed to provide a seamless one-to-one messaging experience. Users can add contacts using their name and phone number, open dedicated chat pages, exchange messages, receive automatic replies, delete individual messages or complete conversations, and mute notifications for configurable durations.
+Chat Application is a full-stack web application inspired by WhatsApp that provides a seamless one-to-one messaging experience. Users can manage contacts, exchange messages, receive automated replies, delete individual messages or complete conversations, and mute notifications for configurable durations.
 
-The project demonstrates practical implementation of frontend and backend integration, CRUD operations, event-driven programming, RESTful communication, database management, and responsive web design using HTML, CSS, JavaScript, Node.js, Express.js, and SQLite. 
+The project demonstrates frontend-backend integration, RESTful API development, CRUD operations, asynchronous communication, responsive UI design, and relational database management using MySQL.
 
 ---
 
-# ✨ Key Highlights
+# 🌟 Project Highlights
 
-- 📱 WhatsApp-inspired user interface
-- 👥 Contact management using name and phone number
-- 💬  Dedicated one-to-one chat interface 
+- Built a full-stack chat application inspired by WhatsApp.
+- Designed responsive frontend using HTML, CSS, and JavaScript.
+- Developed RESTful APIs using Node.js and Express.js.
+- Integrated MySQL database for persistent storage.
+- Implemented CRUD operations for contacts and messages.
+- Simulated automatic replies using asynchronous JavaScript.
+- Added conversation muting and message deletion features.
+
+---
+
+# 📸 Screenshots
+
+| 🏠 Home Page | 💬 Chat Window |
+|--------------|----------------|
+| ![Home Page](screenshots/home.png) | ![Chat Window](screenshots/chat.png) |
+| Displays all contacts and recent conversations. | Send messages, receive automatic replies, and view conversation history. |
+
+| ➕ Add Contact | 🗑️ Delete Message |
+|----------------|-------------------|
+| ![Add Contact](screenshots/add-contact.png) | ![Delete Message](screenshots/delete-message.png) |
+| Add new contacts using the contact management interface. | Delete individual messages from a conversation. |
+
+| 🔕 Mute Conversation | 👥 Contact Management |
+|----------------------|-----------------------|
+| ![Mute Conversation](screenshots/mute-chat.png) | ![Contact Management](screenshots/contacts.png) |
+| Mute conversations for 8 Hours, 1 Week, or Always. | Manage contacts and quickly start new conversations. |
+
+---
+
+# ✨ Key Features
+
+- 📱 WhatsApp-inspired responsive interface
+- 👥 Add and manage contacts
+- 💬 One-to-one messaging
 - 🤖 Automatic reply simulation
-- 🗑️ Delete individual messages or complete conversations
+- 🗑️ Delete individual messages
+- 🧹 Delete complete conversations
 - 🔕 Mute conversations (8 Hours, 1 Week, Always)
-- 💾 SQLite database integration
-- ⚡ Responsive and user-friendly design
+- 💾 Persistent MySQL database
+- ⚡ Responsive user experience
 
 ---
+# 🏗️ System Architecture
 
-# 🚀 Features
+```text
+                 User
+                   │
+                   ▼
+      HTML • CSS • JavaScript
+                   │
+             HTTP Requests
+                   │
+                   ▼
+        Node.js + Express.js
+                   │
+             RESTful APIs
+                   │
+                   ▼
+             MySQL Database
+                   │
+                   ▼
+          Updated Chat Interface
+```
 
-| Feature | Description |
-|----------|-------------|
-| ➕ Add User | Add a new contact using their name and phone number |
-| ❌ Delete User | Remove a contact by performing a long-press action |
-| 💬 One-to-One Chat | Open a dedicated chat page and exchange messages with individual contacts |
-| 🤖 Automatic Replies | Generate automated responses to simulate real conversations |
-| 🗑️ Delete Message | Delete individual messages from a conversation |
-| 🧹 Delete Conversation | Delete the complete conversation with a selected contact |
-| 🔕 Mute User | Mute notifications for **8 Hours**, **1 Week**, or **Always** |
-| 📱 Responsive UI | Clean, responsive, WhatsApp-inspired interface |
-
---- 
-
-
+---
 
 # 🛠️ Tech Stack
 
-| Category | Technologies |
-|----------|--------------|
+| Layer | Technologies |
+|--------|--------------|
 | Frontend | HTML5, CSS3, JavaScript |
 | Backend | Node.js, Express.js |
-| Database | SQLite |
-| Development Tools | VS Code, Git, GitHub |
-
----
-
-# 🧠 Skills Demonstrated
-
-- Full-Stack Web Development
-- CRUD Operations
-- Client-Server Architecture
-- REST API Integration
-- Express.js Routing
-- SQLite Database Integration
-- Database Management
-- Event-Driven Programming
-- Asynchronous JavaScript
-- DOM Manipulation
-- Responsive UI Design
-- Problem Solving
-- Clean Code Organization 
+| Database | MySQL |
+| Version Control | Git, GitHub |
+| Development Tools | VS Code |
 
 ---
 
@@ -79,229 +100,157 @@ The project demonstrates practical implementation of frontend and backend integr
 
 ```text
 ChatApplication/
+├── docs/
+│   ├── Architecture.png
+│   ├── DatabaseSchema.png
+│   └── Workflow.png
 │
 ├── public/
 │   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   ├── script.js
-│   │   ├── chat.js
-│   │   └── users.js
 │   ├── images/
-│   │   ├── logo.png
-│   │   ├── avatars/
-│   │   └── icons/
-│   ├── index.html
-│   └── chat.html
+│   ├── js/
+│   ├── chat.html
+│   └── index.html
+│
+├── screenshots/
 │
 ├── server/
 │   ├── config/
-│   │   └── config.js
+│   ├── config.js
 │   ├── db.js
 │   └── server.js
 │
-├── screenshots/
-├── docs/
-├── README.md
+├── .env.example
+├── .gitignore
+├── CHANGELOG.md
+├── LICENSE
 ├── package.json
 ├── package-lock.json
-├── .gitignore
-├── LICENSE
-├── .env.example
-└── CHANGELOG.md 
+└── README.md
 ```
+---
+
+# 🔌 REST API Endpoints
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /users | Retrieve all contacts |
+| POST | /users | Create a new contact |
+| GET | /messages/:user1/:user2 | Retrieve the conversation between two users |
+| POST | /messages | Send a message |
+| DELETE | /messages/:id | Delete a message |
+| POST | /messages/seen | Mark messages as seen |
+| POST | /mute | Mute a user |
 
 ---
 
-# 📸 Screenshots
+# 🗄️ Database Schema
 
-The following screenshots demonstrate the key features and user interface of the Chat Application.
+## Users
 
-### 🏠 Home Screen
+| Column | Type |
+|---------|------|
+| id | INT (PK) |
+| name | VARCHAR(100) |
+| phone | VARCHAR(15) |
 
-<img src="screenshots/home.png" width="800">
+## Messages
 
----
+| Column | Type |
+|---------|------|
+| id | INT (PK) |
+| sender_id | INT (FK) |
+| receiver_id | INT (FK) |
+| message | TEXT |
+| status | VARCHAR(20) |
+| created_at | TIMESTAMP |
 
-### 💬 Chat Page 
+## Mute_Settings
 
-<img src="screenshots/chat.png" width="800">
-
----
-
-### ➕ Add User
-
-<img src="screenshots/add-user.png" width="800">
-
----
-
-### 🤖 Automatic Reply
-
-<img src="screenshots/auto-reply.png" width="800">
-
----
-
-### 🗑️ Delete Message
-
-<img src="screenshots/delete-message.png" width="800">
-
----
-
-### 🔕 Mute User
-
-<img src="screenshots/mute-user.png" width="800">
-
----
-
-# 🏗️ System Architecture
-
-```text
-                    User
-                      │
-                      ▼
-        HTML • CSS • JavaScript
-                      │
-             HTTP Requests
-                      │
-                      ▼
-          Node.js + Express.js
-                      │
-                      ▼
-             SQLite Database
-                      │
-                      ▼
-          Updated Chat Page 
-```
+| Column | Type |
+|---------|------|
+| id | INT (PK) |
+| user_id | INT (FK) |
+| muted_user_id | INT (FK) |
+| mute_until | DATETIME |
 
 ---
 
 # ⚙️ Installation
 
-### Clone the repository
-
 ```bash
 git clone https://github.com/leelamotakatla-08/ChatApplication.git
-```
 
-### Navigate to the project folder
-
-```bash
 cd ChatApplication
-```
 
-### Install dependencies
-
-```bash
 npm install
 ```
 
-### Start the application
+Update the MySQL database credentials in `server.js` before starting the application.
+
+Start the server:
 
 ```bash
 npm start
 ```
 
-### Open in your browser
+Open your browser:
 
-```text
+```
 http://localhost:3000
 ```
+---
+
+# ✅ Tested Features
+
+- Contact Management
+- One-to-One Messaging
+- Automatic Replies
+- Message Deletion
+- Conversation Muting
+- MySQL Data Persistence
 
 ---
 
-# 🚧 Challenges Faced
-
-- Designing a WhatsApp-like user interface
-- Managing dynamic chat updates
-- Implementing automatic reply functionality
-- Handling message deletion efficiently
-- Managing mute functionality with multiple duration options
-- Organizing frontend and backend components effectively
-
----
-# 🔮 Future Enhancements
+# 🚀 Future Improvements
 
 ### Messaging
-- 👥 Group Chats
-- 🎤 Voice Messages
-- 🖼️ Image Sharing
-- 🎥 Video Sharing
+
+- Group Chats
+- Voice Messages
+- Image & Video Sharing
 
 ### User Experience
-- 😊 Emoji Reactions
-- ⌨️ Typing Indicator
-- 🌙 Dark Mode
-- 🔔 Push Notifications
+
+- Emoji Reactions
+- Typing Indicator
+- Dark Mode
+- Push Notifications
 
 ### Security
-- 🔒 End-to-End Encryption
-- ✔️ Read Receipts
+
+- Read Receipts
+- End-to-End Encryption
 
 ### AI Features
-- 🤖 AI Chat Assistant
-- 💡 Smart Reply Suggestions
+
+- AI Chat Assistant
+- Smart Reply Suggestions
 
 ### Search
-- 🔍 Search Conversations 
 
-
-
----
-
-# 📊 Project Status
-
-| Status | Value |
-|--------|-------|
-| Project | ✅ Completed |
-| Type | Full-Stack Web Application |
-| Platform | Web |
-| Database | SQLite |
-| Purpose | Portfolio & Learning Project |
+- Search Conversations
 
 ---
 
-# 👩‍💻 Developer
+# 👩‍💻 Author
 
-**Motakatla Leela Vardhini**
+**Leela Vardhini Motakatla**
 
-🎓 **B.Tech – Computer Science and Engineering**
+- GitHub: [@leelamotakatla-08](https://github.com/leelamotakatla-08)
+- LinkedIn: [Leela Vardhini Motakatla](https://www.linkedin.com/in/leelavardhini-motakatla-952980389/)
 
-🏫 **Vel Tech Rangarajan Dr. Sagunthala Institute of Science and Technology**
-
-📈 **CGPA:** 9.11
-
-🎓 **Graduation Year:** 2027
-
-## 💻 Technical Skills
-
-- Java
-- Data Structures & Algorithms
-- HTML5
-- CSS3
-- JavaScript
-- Node.js
-- Express.js
-- SQLite
-- MySQL
-- DBMS
-- Operating Systems
-- Computer Networks
-- AWS
-
-🎯 **Career Goal**
-
-Aspiring Software Engineer specializing in **Full-Stack Web Development** and **Java Backend Development**.
 ---
 
-# 📬 Contact
+# 📄 License
 
-- 📧 **Email:** leelamotakatla@gmail.com
-
-- 💼 **LinkedIn:** [linkedin.com/in/leelavardhini-motakatla-952980389](https://www.linkedin.com/in/leelavardhini-motakatla-952980389/)
-
-- 💻 **GitHub:** [github.com/leelamotakatla-08](https://github.com/leelamotakatla-08)
----
-
-# ⭐ Support
-
-If you found this project useful or interesting, consider giving it a ⭐ on GitHub. Your support is appreciated!
+This project is licensed under the MIT License. See the `LICENSE` file for details.
