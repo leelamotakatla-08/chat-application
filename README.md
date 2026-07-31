@@ -34,15 +34,19 @@ The project demonstrates frontend-backend integration, RESTful APIs, CRUD operat
 
 | Home | Chat |
 |------|------|
-| ![](screenshots/home.png) | ![](screenshots/chat.png) |
+| ![](public/images/userPage.png) | ![](public/images/chatPage.png) |
 
-| Add Contact | Delete Message |
-|-------------|----------------|
-| ![](screenshots/add-contact.png) | ![](screenshots/delete-message.png) |
+| Send Message | Auto Reply |
+|--------------|------------|
+| ![](public/images/sendMessage.png) | ![](public/images/auto-Replies.png) |
 
-| Mute Conversation | Contacts |
-|-------------------|----------|
-| ![](screenshots/mute-chat.png) | ![](screenshots/contacts.png) |
+| Delete Message | Delete Conversation |
+|----------------|---------------------|
+| ![](public/images/singleMessageDelete.png) | ![](public/images/deleteAllMessages.png) |
+
+| Mute Settings |
+|---------------|
+| ![](public/images/muteSettings.png) |
 
 ---
 
