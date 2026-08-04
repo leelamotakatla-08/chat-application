@@ -1,32 +1,93 @@
-# 💬 Chat Application | Full-Stack WhatsApp-Inspired Messaging Platform
+# 💬 Chat Application
 
-> A full-stack WhatsApp-inspired messaging platform built using **HTML, CSS, JavaScript, Node.js, Express.js, and MySQL**.
+![HTML5](https://img.shields.io/badge/HTML5-orange)
+![CSS3](https://img.shields.io/badge/CSS3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
+![Node.js](https://img.shields.io/badge/Node.js-green)
+![Express.js](https://img.shields.io/badge/Express.js-black)
+![MySQL](https://img.shields.io/badge/Database-MySQL-blue)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![Platform](https://img.shields.io/badge/Platform-Web-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
+A full-stack **WhatsApp-inspired Chat Application** built with **HTML5, CSS3, JavaScript, Node.js, Express.js, and MySQL**.
 
----
-
-## 📖 Project Overview
-
-Chat Application is a full-stack web application inspired by WhatsApp that enables users to manage contacts, exchange one-to-one messages, receive automatic replies, delete messages or conversations, and mute notifications.
-
-The project demonstrates frontend-backend integration, RESTful APIs, CRUD operations, responsive UI design, and MySQL database integration.
+The application enables users to manage contacts, exchange one-to-one messages, receive automatic replies, mute conversations, delete messages, delete conversations, and manage chat history through a responsive web interface powered by REST APIs and MySQL.
 
 ---
 
 ## ✨ Features
 
-- 📱 WhatsApp-inspired responsive interface
-- 👥 Contact management
-- 💬 One-to-one messaging
-- 🤖 Automatic reply simulation
-- 🗑️ Delete messages
-- 🧹 Delete conversations
-- 🔕 Mute conversations
-- 💾 MySQL database integration
-- ⚡ Responsive user interface
+- 💬 One-to-One Messaging
+- 👥 Contact Management
+- 🤖 Automatic Reply Simulation
+- 🗑️ Delete Messages
+- 🧹 Delete Conversations
+- 🔕 Mute Conversations
+- 💾 MySQL Database Integration
+- 🔄 RESTful API Integration
+- ⚡ Responsive User Interface
+
+---
+
+## 🛠 Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **Backend** | Node.js, Express.js |
+| **Database** | MySQL |
+| **API** | REST APIs |
+| **Tools** | Git, GitHub, VS Code |
+
+---
+
+## 🏗 Architecture
+
+```text
+User
+   │
+HTML • CSS • JavaScript
+   │
+REST API Requests
+   │
+Express.js Server
+   │
+Business Logic
+   │
+MySQL Database
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/leelamotakatla-08/chat-application.git
+cd chat-application
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Rename `.env.example` to `.env` and update your MySQL database credentials.
+
+### Start the application
+
+```bash
+npm start
+```
+
+### Open in your browser
+
+```text
+http://localhost:3000
+```
 
 ---
 
@@ -34,100 +95,36 @@ The project demonstrates frontend-backend integration, RESTful APIs, CRUD operat
 
 | Home | Chat |
 |------|------|
-| ![](public/images/userPage.png) | ![](public/images/chatPage.png) |
+| ![](screenshots/home.png) | ![](screenshots/chat.png) |
 
 | Send Message | Auto Reply |
 |--------------|------------|
-| ![](public/images/sendMessage.png) | ![](public/images/auto-Replies.png) |
+| ![](screenshots/send-message.png) | ![](screenshots/auto-reply.png) |
 
 | Delete Message | Delete Conversation |
 |----------------|---------------------|
-| ![](public/images/singleMessageDelete.png) | ![](public/images/deleteAllMessages.png) |
+| ![](screenshots/delete-message.png) | ![](screenshots/delete-conversation.png) |
 
-| Mute Settings |
-|---------------|
-| ![](public/images/muteSettings.png) |
-
----
-
-## 🏗️ System Architecture
-
-```text
-User
-   │
-HTML • CSS • JavaScript
-   │
-HTTP Requests
-   │
-Node.js + Express.js
-   │
-REST APIs
-   │
-MySQL
-   │
-Updated Chat Interface
-```
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technologies |
-|--------|--------------|
-| Frontend | HTML5, CSS3, JavaScript |
-| Backend | Node.js, Express.js |
-| Database | MySQL |
-| Tools | Git, GitHub, VS Code |
-
----
-
-## 📂 Project Structure
-
-```text
-ChatApplication/
-├── docs/
-├── public/
-├── screenshots/
-├── server/
-├── .env.example
-├── package.json
-├── README.md
-└── LICENSE
-```
-
----
-
-## ⚙️ Installation
-
-```bash
-git clone https://github.com/leelamotakatla-08/chat-application.git
-
-cd chat-application
-
-npm install
-
-npm start
-```
-
-Open:
-
-```
-http://localhost:3000
-```
+| Mute Conversation |
+|-------------------|
+| ![](screenshots/mute-settings.png) |
 
 ---
 
 ## 🚀 Future Enhancements
 
 - 👥 Group Chats
-- 🎤 Voice Messages
-- 🖼️ Image & Video Sharing
+- 📎 File & Image Sharing
 - 😊 Emoji Reactions
 - 🌙 Dark Mode
 - 🔔 Push Notifications
 - 🔒 End-to-End Encryption
-- 🤖 AI Chat Assistant
-- 🔍 Search Conversations
+
+---
+
+## 💡 Skills Demonstrated
+
+**HTML5 • CSS3 • JavaScript (ES6) • Node.js • Express.js • REST API Development • CRUD Operations • MySQL • Full-Stack Web Development • Responsive Web Design • Git • GitHub**
 
 ---
 
@@ -135,11 +132,16 @@ http://localhost:3000
 
 **Motakatla Leela Vardhini**
 
-- GitHub: https://github.com/leelamotakatla-08
-- LinkedIn: https://www.linkedin.com/in/leelavardhini-motakatla-952980389/
+🎓 B.Tech – Computer Science & Engineering
+
+💻 Aspiring Software Developer
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
+
+---
+
+⭐ **If you found this project useful, consider giving it a Star on GitHub!**
