@@ -10,7 +10,7 @@
 
 A full-stack **WhatsApp-inspired Chat Application** built with **HTML5, CSS3, JavaScript, Node.js, Express.js, and MySQL**.
 
-The application provides a responsive messaging platform where users can manage contacts, exchange one-to-one messages, receive automatic replies, mute conversations, and manage chat history through RESTful APIs backed by a MySQL database.
+The application enables users to manage contacts, exchange one-to-one messages, receive automatic replies, mute conversations, delete messages, delete conversations, and manage chat history through RESTful APIs backed by a MySQL database.
 
 ---
 
@@ -19,10 +19,11 @@ The application provides a responsive messaging platform where users can manage 
 - 💬 One-to-One Messaging
 - 👥 Contact Management
 - 🤖 Automatic Reply Simulation
-- 🗑️ Delete Messages & Conversations
+- 🗑️ Delete Messages
+- 🧹 Delete Conversations
 - 🔕 Mute Conversations
 - 💾 MySQL Database Integration
-- 🔄 RESTful API Architecture
+- 🔄 RESTful APIs
 - ⚡ Responsive User Interface
 
 ---
@@ -49,8 +50,6 @@ HTML • CSS • JavaScript
 REST API Requests
         │
 Node.js + Express.js
-        │
-REST API Controllers
         │
 MySQL Database
 ```
@@ -125,7 +124,7 @@ http://localhost:3000
 
 ## 💡 Skills Demonstrated
 
-**HTML5 • CSS3 • JavaScript (ES6) • Node.js • Express.js • REST APIs • CRUD Operations • MySQL • Full-Stack Web Development • Responsive UI Design • Git • GitHub**
+**HTML5 • CSS3 • JavaScript (ES6) • Node.js • Express.js • REST API Development • CRUD Operations • MySQL • Full-Stack Web Development • Responsive Web Design • Git • GitHub**
 
 ---
 
